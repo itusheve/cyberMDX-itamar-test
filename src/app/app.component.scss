@@ -1,0 +1,55 @@
+.container {
+  display: grid;
+  grid-template-columns: 220px 1fr 220px;
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 12px;
+  grid-template-areas:
+    "header header header"
+    "nav content content";
+  height: 100vh;
+}
+
+app-header {
+  color: white;
+  font-size: 14px;
+  grid-area: header;
+  text-align: center;
+}
+
+app-filters {
+  grid-area: nav;
+  margin-left: 0.6rem;
+}
+
+app-main {
+  grid-area: content;
+  padding: 25px;
+  max-height: 100%;
+  overflow-y: scroll;
+}
+
+ul li {
+  color: white;
+}
+ul li a {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 991px) {
+  app-nav,
+  app-aside {
+    margin: 0;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "nav"
+      "content";
+    grid-template-rows: auto minmax(60px, auto) 1fr minmax(70px, auto) auto;
+  }
+}

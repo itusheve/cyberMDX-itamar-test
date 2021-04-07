@@ -1,0 +1,11 @@
+ <main class="main">
+    <section class="main__cards" *ngIf="ents$ | async as ents">
+        <app-entries-card 
+            *ngFor="let e of ents.entries" 
+            [title]="e.API"
+            [category]="e.Category" 
+            [description]="e.Description"
+            [viewDocs]="e.Link"
+            [protocol]="e.HTTPS"></app-entries-card>
+    </section>
+</main>
